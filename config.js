@@ -10,11 +10,11 @@ const config = {
     },
 
     database:{
-        host:"127.0.0.1",
+        host:"192.168.40.23",
         port:3306,
         username:"root",
-        password:"root",
-        database:"demo",
+        password:"a12345",
+        database:"lt_muwu_0716",
     }
 };
 

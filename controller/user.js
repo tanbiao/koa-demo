@@ -1,5 +1,3 @@
-const { create } = require("domain");
-
 const user = {
     async index(ctx) {
         ctx.body = "this is user index page";

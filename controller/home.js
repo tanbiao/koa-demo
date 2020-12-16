@@ -1,7 +1,7 @@
 const { index } = require("./user");
-const userService = require("../services/user");
+const userService = require("../service/user");
 
-const cache = require("../utils/cache");
+const redis = require("../core/redis");
 
 const home = {
     async index(ctx) {
@@ -10,8 +10,6 @@ const home = {
 
     async test(ctx) {
 
-        const redis = cache.getClient();
-        console.log(redis)
         let test = await redis.get("test");
         
         redis.set("test",Math.random());

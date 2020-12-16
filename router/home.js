@@ -1,6 +1,6 @@
-const home = require('../controllers/home');
+const home = require('../controller/home');
 const Router = require('koa-router');
-const cache = require("../utils/cache");
+const redis = require("../core/redis");
 
 const router = new Router();
 

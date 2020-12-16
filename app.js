@@ -1,7 +1,7 @@
 const config = require('./config.js');
 const Koa = require('koa');
 const bodyparser = require('koa-bodyparser');
-const routers = require('./routers/index');
+const routers = require('./router/index');
 
 const app = new Koa();//new Koa
 //引入中间件
@@ -16,6 +16,7 @@ app.use(async (ctx, next)=>{
     }catch(e){
         // 如果后面的代码报错 返回500
         ctx.status = 500;
+        console.log(e);
         ctx.body = "服务器内部错误"
     }
 })

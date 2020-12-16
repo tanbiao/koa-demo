@@ -21,6 +21,7 @@ let query = function( sql, values ) {
 
           if ( err ) {
             reject( err )
+            
           } else {
             resolve( result )
           }
