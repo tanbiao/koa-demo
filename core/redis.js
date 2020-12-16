@@ -9,6 +9,6 @@ const redis = new Redis({
 	keyPrefix:config.redis.keyPrefix,
 }); // uses defaults unless given configuration object
 redis.on('error', function (error) {
-	console.error('ioredis] client error: %s', error);
 });
+
 module.exports = redis;
