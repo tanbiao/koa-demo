@@ -1,39 +1,24 @@
 const config = require("../config")
 const dbConfig = config.database
-const mysql = require("mysql")
+const Sequelize = require('sequelize')
 
-const pool = mysql.createPool({
-  host     : dbConfig.host,
-  posrt    : dbConfig.port,
-  user     : dbConfig.username,
-  password : dbConfig.password,
-  database : dbConfig.database
-});
+const sequelize = new Sequelize(dbConfig.database, dbConfig.username,dbConfig.password, {
+    host: dbConfig.host,
+    port:dbConfig.port,
+    dialect: 'mysql',
+    operatorAliases: false,
+    pool: dbConfig.pool || {
+        max: 5,
+        min: 0,
+        idle: 30000
+    },
+    //解决中文输入问题
+    define: {
+        charset: 'utf8',
+        dialectOptions: {
+            collate: 'utf8_general_ci'
+        }
+    }
+})
 
-let query = function( sql, values ) {
-
-  return new Promise(( resolve, reject ) => {
-    pool.getConnection(function(err, connection) {
-      if (err) {
-        resolve( err )
-      } else {
-        connection.query(sql, values, ( err, result) => {
-
-          if ( err ) {
-            reject( err )
-            
-          } else {
-            resolve( result )
-          }
-          connection.release()
-        })
-      }
-    })
-  })
-
-}
-
-const db = {
-    query:query,
-}
-module.exports = db;
+module.exports = sequelize;

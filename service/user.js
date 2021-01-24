@@ -1,8 +1,23 @@
-const userModel = require("../model/user");
+const BaseService = require("./base");
 
-module.exports = {
-
+class UserService  extends BaseService {
+    
     async findUser(id) {
-        return await userModel.findUser(id);
+        return await this.User.find(id);
     }
-};
+    
+    async findAll() {
+        return await this.User.findAll();
+    }
+    
+    async create(data) {
+        return await this.User.create(data);
+    }
+    
+    async find(id) {
+        return await this.User.findByPk(id);
+    }
+
+}
+
+module.exports = new UserService();

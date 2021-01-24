@@ -10,11 +10,16 @@ const config = {
     },
 
     database:{
-        host:"192.168.40.23",
+        host:"localhost",
         port:3306,
         username:"root",
-        password:"a12345",
-        database:"lt_muwu_0716",
+        password:"root",
+        database:"demo",
+        pool:{
+            max: 5,
+            min: 0,
+            idle: 30000
+        }
     }
 };
 
