@@ -1,14 +1,13 @@
 const Redis = require("ioredis");
-const config = require('../config');
+const redisConfig = require("../config/redis");
 
 const redis = new Redis({
-	port: config.redis.port, // Redis port
-	host: config.redis.host, // Redis host
-	password: config.redis.password,
-	db: config.redis.db, 
-	keyPrefix:config.redis.keyPrefix,
+    port: redisConfig.port, // Redis port
+    host: redisConfig.host, // Redis host
+    password: redisConfig.password,
+    db: redisConfig.db,
+    keyPrefix: redisConfig.keyPrefix,
 }); // uses defaults unless given configuration object
-redis.on('error', function (error) {
-});
+redis.on("error", function (error) {});
 
 module.exports = redis;

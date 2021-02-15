@@ -1,16 +1,18 @@
 var DataTypes = require("sequelize").DataTypes;
-var _Post = require("./post");
+var _Migration = require("./migration");
+var _Sequelizemetum = require("./sequelizemetum");
 var _User = require("./user");
 
 function initModels(sequelize) {
-  var Post = _Post(sequelize, DataTypes);
-  var User = _User(sequelize, DataTypes);
+    var Migration = _Migration(sequelize, DataTypes);
+    var Sequelizemetum = _Sequelizemetum(sequelize, DataTypes);
+    var User = _User(sequelize, DataTypes);
 
-
-  return {
-    Post,
-    User,
-  };
+    return {
+        Migration,
+        Sequelizemetum,
+        User,
+    };
 }
 module.exports = initModels;
 module.exports.initModels = initModels;

@@ -1,0 +1,55 @@
+{
+  "name": "koa-demo",
+  "description": "a web project with koa.",
+  "version": "1.0.0",
+  "author": "Json",
+  "maintainers": [
+    "Json <fanqingxuan@163..com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fanqingxuan/koa-demo.git"
+  },
+  "keywords": [
+    "koa",
+    "koa-bodyparser",
+    "koa-router",
+    "logger",
+    "winston"
+  ],
+  "dependencies": {
+    "ioredis": "^4.22.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.5.0",
+    "sequelize-cli": "^6.2.0",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  },
+  "devDependencies": {
+    "pm2": "^4.5.4",
+    "prettier": "2.2.1",
+    "sequelize-auto": "^0.7.11"
+  },
+  "scripts": {
+    "migration": "./node_modules/.bin/sequelize-cli migration:generate --name",
+    "migrate": "./node_modules/.bin/sequelize-cli db:migrate",
+    "rollback": "./node_modules/.bin/sequelize-cli db:migrate:undo",
+    "auto:model": "node ./core/auto_model.js",
+    "prettier": "./node_modules/.bin/prettier  --tab-width 4 -w */*.js",
+    "start": "node server.js",
+    "pm2": "./node_modules/.bin/pm2 start server.js --name koa-demo",
+    "stop": "./node_modules/.bin/pm2 stop koa-demo",
+    "restart": "./node_modules/.bin/pm2 restart koa-demo",
+    "reload": "./node_modules/.bin/pm2 reload koa-demo",
+    "dev": "./node_modules/.bin/nodemon server.js"
+  },
+  "engines": {
+    "node": ">= 6.4.0"
+  },
+  "license": "MIT"
+}

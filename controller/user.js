@@ -8,9 +8,9 @@ const user = {
     },
 
     async create(ctx) {
-        const user =  ctx.request.body;
+        const user = ctx.request.body;
         ctx.body = user.name;
-    }
+    },
 };
 
 module.exports = user;
