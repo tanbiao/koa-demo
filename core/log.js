@@ -38,6 +38,8 @@ container.add(request_logger_name,getLogger(request_logger_name,'info') );
 const app_logger_name = "app";
 container.add(app_logger_name, getLogger(app_logger_name,appConfig.logLevel));
 
+const error_logger_name = "error";
+container.add(error_logger_name, getLogger(error_logger_name,'warn'));
 
 class Logger {
 
@@ -62,5 +64,6 @@ class Logger {
 
 module.exports = {
     requestLogger: container.get(request_logger_name),
+    errorLogger: container.get(error_logger_name),
     logger:new Logger()
 };

@@ -1,6 +1,7 @@
 const dbConfig = require("../config/database");
 
 const Sequelize = require("sequelize");
+const logger = require('./log').logger;
 
 const sequelize = new Sequelize(
     dbConfig.database,
@@ -17,13 +18,17 @@ const sequelize = new Sequelize(
             min: 0,
             idle: 30000,
         },
-        //解决中文输入问题
+        logQueryParameters:true,//绑定值写入到日志
         define: {
             charset: "utf8",
             dialectOptions: {
                 collate: "utf8_general_ci",
             },
         },
+        logging:(msg) => {
+            logger.info("sql",msg);
+            console.log(msg);
+        }
     }
 );
 
