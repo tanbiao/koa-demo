@@ -6,7 +6,11 @@ class UserService extends BaseService {
     }
 
     async findAll() {
-        return await this.models.User.findAll();
+        this.logger.debug("findAll","这是findAll")
+        const list = await this.models.User.findAll();
+        this.logger.info("findAll",list);
+
+        return list;
     }
 
     async create(data) {
