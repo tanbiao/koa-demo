@@ -1,6 +1,8 @@
 const winston = require("winston");
 const DailyRotateFile = require("winston-daily-rotate-file");
+const appConfig = require("../config/app");
 
+const getNamespace = require('continuation-local-storage').getNamespace;
 
 const { format } = winston;
 const { combine, timestamp, json } = format;
@@ -10,6 +12,7 @@ const container = new winston.Container();
 function getLogger(logger_name,level) {
     const log_path = "logs";
     const logger = {
+        level:level,
         format: combine(
             timestamp({
                 format: "YYYY-MM-DD HH:mm:ss",
@@ -33,7 +36,7 @@ const request_logger_name = "request";
 container.add(request_logger_name,getLogger(request_logger_name,'info') );
 
 const app_logger_name = "app";
-container.add(app_logger_name, getLogger(app_logger_name,'debug'));
+container.add(app_logger_name, getLogger(app_logger_name,appConfig.logLevel));
 
 
 class Logger {
@@ -52,7 +55,8 @@ class Logger {
         this._log("error",keywords,message);
     }
     _log(level,keywords,message) {
-        container.get(app_logger_name).log(level,message,{keywords:keywords});
+        const localStorage = getNamespace('localStorage');
+        container.get(app_logger_name).child({requestId:localStorage.get('requestId') || 0}).log(level,message,{keywords:keywords});
     }
 }
 
