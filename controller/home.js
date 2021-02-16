@@ -1,10 +1,15 @@
 const userService = require("../service/user");
 
 const redis = require("../core/redis");
+const logger = require('../core/log').logger;
 
 const home = {
     async index(ctx) {
         ctx.body = ctx.request.body;
+        logger.debug('debug关键字',ctx.request.query);
+        logger.info('info关键字',ctx.request.query);
+        logger.warn('warn关键字',ctx.request.query);
+        logger.error('error关键字',ctx.request.query);
     },
 
     async test(ctx) {

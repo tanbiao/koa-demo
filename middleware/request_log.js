@@ -12,9 +12,9 @@ async function requestLog(ctx, next) {
     let requestId = uuidv4();
     const childLogger = requestLogger.child({ requestId: requestId });
 
-    childLogger.info(request);
+    childLogger.info(request,{keywords:"request"});
     await next();
-    childLogger.info({ response: ctx.response.body });
+    childLogger.info(ctx.response.body,{keywords:"response"});
 }
 
 module.exports = requestLog;
