@@ -1,5 +1,5 @@
+const env = require("../core/env");
+
 module.exports = {
-    port: 8008,
-    debug: true,
-    environment: "production",
+    port: env("PORT", 8080),
 };

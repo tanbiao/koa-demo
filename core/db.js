@@ -1,9 +1,6 @@
-const appConfig = require("../config/app");
-const DBConfigObject = require("../config/database");
+const dbConfig = require("../config/database");
 
 const Sequelize = require("sequelize");
-
-const dbConfig = DBConfigObject[appConfig.environment];
 
 const sequelize = new Sequelize(
     dbConfig.database,

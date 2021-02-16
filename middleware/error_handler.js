@@ -1,4 +1,4 @@
-async function errorHandler(ctx,next) {
+async function errorHandler(ctx, next) {
     try {
         await next(); // 执行后代的代码
         if (!ctx.body) {
