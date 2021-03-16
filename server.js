@@ -12,12 +12,3 @@ app.use(routers.routes(), routers.allowedMethods());
 
 app.listen(config.port);
 console.log(`the server is start at port ${config.port}`);
-
-let a = 5;
-let b = 45;
-
-if (b > a) {
-    if (b > a) {
-        console.log("hello");
-    }
-}

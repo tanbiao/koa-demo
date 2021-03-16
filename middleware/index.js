@@ -1,5 +1,3 @@
-const { models } = require("../service/user");
-
 const errorHandler = require("./error_handler");
 const requestLog = require("./request_log");
 

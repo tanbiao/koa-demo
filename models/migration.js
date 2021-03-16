@@ -8,10 +8,10 @@ class Migration extends Sequelize.Model {
         super.init(
             {
                 Id: {
-                    autoIncrement: true,
                     type: DataTypes.INTEGER.UNSIGNED,
                     allowNull: false,
                     primaryKey: true,
+                    autoIncrement: true,
                 },
                 Migration: {
                     type: DataTypes.STRING(255),

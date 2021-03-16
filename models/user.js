@@ -8,10 +8,10 @@ class User extends Sequelize.Model {
         super.init(
             {
                 UserId: {
-                    autoIncrement: true,
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     primaryKey: true,
+                    autoIncrement: true,
                     field: "user_id",
                 },
                 Name: {
@@ -45,12 +45,6 @@ class User extends Sequelize.Model {
                         unique: true,
                         using: "BTREE",
                         fields: [{ name: "user_id" }],
-                    },
-                    {
-                        name: "user_name",
-                        unique: true,
-                        using: "BTREE",
-                        fields: [{ name: "name" }],
                     },
                 ],
             }

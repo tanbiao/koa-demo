@@ -1,0 +1,6 @@
+{
+  "*.js": [
+        "./node_modules/.bin/prettier  --tab-width 4 -w",
+        "./node_modules/.bin/eslint  --fix --ext js --cache"
+      ]
+}

@@ -10,7 +10,6 @@ if (fs.existsSync(file)) {
     }
 }
 
-
 function env(key, defaultValue) {
     return process.env[key] !== undefined ? process.env[key] : defaultValue;
 }

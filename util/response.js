@@ -1,20 +1,19 @@
 const response = {
-
-    success(data,message) {
+    success(data, message) {
         return {
-            code:0,
-            message:message || '成功',
-            data:data,
+            code: 0,
+            message: message || "成功",
+            data: data,
         };
     },
 
-    error(message,code) {
+    error(message, code) {
         return {
-            code:code || 1,
-            message : message || '',
-            data:[],
-        }
-    }
-}
+            code: code || 1,
+            message: message || "",
+            data: [],
+        };
+    },
+};
 
 module.exports = response;

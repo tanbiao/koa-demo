@@ -1,5 +1,5 @@
-const response_util = require('../util/response');
-const userService = require('../service/user');
+const response_util = require("../util/response");
+const userService = require("../service/user");
 
 const user = {
     async index(ctx) {

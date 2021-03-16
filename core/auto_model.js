@@ -12,6 +12,8 @@ const options = {
 };
 
 const auto = new SequelizeAuto(sequelize, null, null, options);
+
+//eslint-disable-next-line
 auto.run().then((data) => {
     console.log("====================");
     console.log("\r\ngenerate all model successful.");

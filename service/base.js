@@ -1,6 +1,6 @@
 const initModels = require("../models/init-models");
 const sequelize = require("../core/db");
-const logger = require('../core/log').logger;
+const logger = require("../core/log").logger;
 
 class BaseService {
     models = {};

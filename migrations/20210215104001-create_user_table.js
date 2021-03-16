@@ -34,6 +34,7 @@ module.exports = {
     },
 
     down: async (queryInterface, Sequelize) => {
+        // eslint-disable-line
         await queryInterface.dropTable("user");
     },
 };

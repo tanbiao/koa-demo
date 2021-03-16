@@ -8,6 +8,8 @@ const redis = new Redis({
     db: redisConfig.db,
     keyPrefix: redisConfig.keyPrefix,
 }); // uses defaults unless given configuration object
+
+//eslint-disable-next-line
 redis.on("error", function (error) {});
 
 module.exports = redis;
