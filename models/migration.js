@@ -7,21 +7,19 @@ class Migration extends Sequelize.Model {
     static init(sequelize, DataTypes) {
         super.init(
             {
-                Id: {
+                id: {
+                    autoIncrement: true,
                     type: DataTypes.INTEGER.UNSIGNED,
                     allowNull: false,
                     primaryKey: true,
-                    autoIncrement: true,
                 },
-                Migration: {
+                migration: {
                     type: DataTypes.STRING(255),
                     allowNull: false,
-                    field: "migration",
                 },
-                Batch: {
+                batch: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
-                    field: "batch",
                 },
             },
             {

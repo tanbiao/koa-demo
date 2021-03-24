@@ -20,6 +20,12 @@ class UserService extends BaseService {
     async find(id) {
         return await this.models.User.findByPk(id);
     }
+
+    async findUserByName(username) {
+        return await this.models.User.findOne({
+            where: { name: username || "" },
+        });
+    }
 }
 
 module.exports = new UserService();

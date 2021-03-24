@@ -5,7 +5,7 @@ const sequelize = require("./db");
 const options = {
     caseFile: "l",
     caseModel: "p",
-    caseProp: "p",
+    caseProp: "l",
     lang: "es6",
     singularize: true,
     additional: {},

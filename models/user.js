@@ -7,32 +7,40 @@ class User extends Sequelize.Model {
     static init(sequelize, DataTypes) {
         super.init(
             {
-                UserId: {
+                user_id: {
+                    autoIncrement: true,
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     primaryKey: true,
-                    autoIncrement: true,
-                    field: "user_id",
                 },
-                Name: {
+                name: {
                     type: DataTypes.STRING(50),
                     allowNull: false,
                     defaultValue: "",
                     comment: "用户名",
-                    field: "name",
                 },
-                Age: {
+                age: {
                     type: DataTypes.INTEGER,
                     allowNull: false,
                     defaultValue: 0,
                     comment: "年龄",
-                    field: "age",
                 },
-                Status: {
+                status: {
                     type: DataTypes.TINYINT,
                     allowNull: false,
                     defaultValue: 1,
-                    field: "status",
+                },
+                test_status: {
+                    type: DataTypes.TINYINT,
+                    allowNull: false,
+                    defaultValue: 1,
+                    field: "TestStatus",
+                },
+                pwd: {
+                    type: DataTypes.STRING(32),
+                    allowNull: false,
+                    defaultValue: "",
+                    comment: "密码",
                 },
             },
             {
@@ -45,6 +53,12 @@ class User extends Sequelize.Model {
                         unique: true,
                         using: "BTREE",
                         fields: [{ name: "user_id" }],
+                    },
+                    {
+                        name: "user_name",
+                        unique: true,
+                        using: "BTREE",
+                        fields: [{ name: "name" }],
                     },
                 ],
             }

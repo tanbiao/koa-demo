@@ -7,7 +7,7 @@ class Sequelizemetum extends Sequelize.Model {
     static init(sequelize, DataTypes) {
         super.init(
             {
-                Name: {
+                name: {
                     type: DataTypes.STRING(255),
                     allowNull: false,
                     primaryKey: true,
