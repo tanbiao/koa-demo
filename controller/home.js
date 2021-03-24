@@ -10,6 +10,7 @@ const home = {
         logger.info("info关键字", ctx.request.query);
         logger.warn("warn关键字", ctx.request.query);
         logger.error("error关键字", ctx.request.query);
+        logger.info("userInfo", ctx.user);
         ctx.body = response_util.success(ctx.request.body);
     },
 

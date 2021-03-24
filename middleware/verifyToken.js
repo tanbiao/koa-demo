@@ -11,6 +11,7 @@ async function verifyToken(ctx, next) {
         ctx.body = response_util.error("登录已过期，请重新登录");
         return;
     }
+    ctx.user = JSON.parse(redisInfo);
 
     await next(); // 执行后代的代码
 }

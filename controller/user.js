@@ -2,6 +2,7 @@ const response_util = require("../util/response");
 const userService = require("../service/user");
 const logger = require("../core/log").logger;
 const md5 = require("md5");
+const redis = require("../core/redis");
 
 const user = {
     async index(ctx) {
@@ -37,6 +38,7 @@ const user = {
             return;
         }
         const token = md5(`${username}${pwd}${username}`);
+        await redis.set(token, JSON.stringify(user), "EX", 86400);
         ctx.body = response_util.success({ token: token, user: user });
     },
 };

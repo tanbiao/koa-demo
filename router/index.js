@@ -7,8 +7,8 @@ const verifyToken = require("../middleware/verifyToken");
 const router = new Router();
 router.post("/login", userController.login);
 
+router.use(home.routes(), home.allowedMethods());
 router.use(verifyToken);
 router.use(user.routes(), user.allowedMethods());
-router.use(home.routes(), home.allowedMethods());
 
 module.exports = router;
